@@ -50,7 +50,7 @@ public class CourseAssignServiceimpl {
         int generations = 1000;
         int timeCount = 24; // 假设一天24个时间段
         double mutationRate = 0.1;
-        
+
         // 局部变量，避免多线程污染
         Map<Integer,List<Integer>> mp1 = new HashMap<>(); // classId -> courseIds
         Map<Integer,List<Integer>> mp2 = new HashMap<>(); // courseId -> teacherIds
