@@ -5,6 +5,8 @@ import com.example.ZhangDT.bean.Admin;
 import com.example.ZhangDT.core.ResponseMessage;
 import com.example.ZhangDT.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.cache.CacheProperties;
+import org.springframework.cache.Cache;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

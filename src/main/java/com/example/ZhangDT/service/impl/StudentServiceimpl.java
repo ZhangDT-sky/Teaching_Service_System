@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StudentServiceimpl implements StudentService {
+public class StudentServiceImpl implements StudentService {
 
-    private static final Logger logger = LoggerFactory.getLogger(StudentServiceimpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
 
     @Autowired
     private StudentMapper studentMapper;

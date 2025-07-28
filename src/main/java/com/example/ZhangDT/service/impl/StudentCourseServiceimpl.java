@@ -13,9 +13,9 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 
 @Service
-public class StudentCourseServiceimpl implements StudentCourseService {
+public class StudentCourseServiceImpl implements StudentCourseService {
 
-    private static final Logger logger = LoggerFactory.getLogger(StudentCourseServiceimpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(StudentCourseServiceImpl.class);
 
     @Autowired
     private StringRedisTemplate redisTemplate;
@@ -28,6 +28,9 @@ public class StudentCourseServiceimpl implements StudentCourseService {
 
     @Autowired
     private RedisScript<Long> dropCourseScript;
+
+    @Autowired
+    private RedisScript<Long> seqCourseScript;
 
     @Override
     public ResponseMessage<String> selectCourse(String studentId, Integer courseId, String semesterYear, String semesterTime) {
@@ -54,7 +57,7 @@ public class StudentCourseServiceimpl implements StudentCourseService {
                     logger.info("课程已满: studentId={}, courseId={}", studentId, courseId);
                     return ResponseMessage.fail("课程已满");
                 case 2: // 选课成功
-                    // 发送异步消息处理后续逻辑
+//                     发送异步消息处理后续逻辑
                     Map<String, Object> msg = new HashMap<>();
                     msg.put("studentId", studentId);
                     msg.put("courseId", courseId);
@@ -62,9 +65,10 @@ public class StudentCourseServiceimpl implements StudentCourseService {
                     msg.put("semesterTime", semesterTime);
                     msg.put("type", "select");
 
-                    Long seq = redisTemplate.opsForValue().increment("course.select.seq", 1);
-                    if (seq == null) { seq = redisTemplate.opsForValue().increment("course.select.seq", 1); }
-                    seq %= 3;
+                    Long seq = redisTemplate.execute(
+                            seqCourseScript,
+                            Collections.singletonList("course.select.seq"),
+                            String.valueOf(3));
                     String queue = "course.select.queue" + seq;
                     rabbitTemplate.convertAndSend(queue, msg);
                     logger.info("选课请求已提交: studentId={}, courseId={}, queue={}", studentId, courseId, queue);
@@ -72,7 +76,9 @@ public class StudentCourseServiceimpl implements StudentCourseService {
                 default:
                     throw new RuntimeException("未知的脚本返回值: " + result);
 
+
             }
+
         }
         catch (Exception e){
             logger.error("选课异常: studentId={}, courseId={}", studentId, courseId, e);

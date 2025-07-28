@@ -4,7 +4,7 @@ import com.example.ZhangDT.bean.ClassSchedule;
 import com.example.ZhangDT.bean.exam.ArrangeRequest;
 import com.example.ZhangDT.core.ResponseMessage;
 import com.example.ZhangDT.service.ClassScheduleService;
-import com.example.ZhangDT.service.impl.CourseAssignServiceimpl;
+import com.example.ZhangDT.service.impl.CourseAssignServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ public class ClassScheduleController {
     @Autowired
     private ClassScheduleService classScheduleService;
     @Autowired
-    private CourseAssignServiceimpl courseAssignService;
+    private CourseAssignServiceImpl courseAssignService;
 
     @GetMapping("/{id}")
     public ResponseMessage<ClassSchedule> getById(@PathVariable Integer id) {

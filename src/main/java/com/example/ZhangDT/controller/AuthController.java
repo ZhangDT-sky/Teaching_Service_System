@@ -2,8 +2,8 @@ package com.example.ZhangDT.controller;
 
 import com.example.ZhangDT.bean.dto.LoginRequestDTO;
 import com.example.ZhangDT.core.ResponseMessage;
-import com.example.ZhangDT.service.impl.AuthServiceimpl;
-import com.example.ZhangDT.service.impl.CaptchaServiceimpl;
+import com.example.ZhangDT.service.impl.AuthServiceImpl;
+import com.example.ZhangDT.service.impl.CaptchaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     @Autowired
-    private AuthServiceimpl authService;
+    private AuthServiceImpl authService;
 
     @Autowired
-    private CaptchaServiceimpl captchaService;
+    private CaptchaServiceImpl captchaService;
 
 
     @GetMapping("/captcha")

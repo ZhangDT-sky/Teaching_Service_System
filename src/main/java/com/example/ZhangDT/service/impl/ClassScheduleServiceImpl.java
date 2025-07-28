@@ -1,6 +1,5 @@
 package com.example.ZhangDT.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.ZhangDT.bean.ClassSchedule;
 import com.example.ZhangDT.mapper.ClassScheduleMapper;
 import com.example.ZhangDT.service.ClassScheduleService;

@@ -1,6 +1,5 @@
 package com.example.ZhangDT.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.ZhangDT.bean.Teacher;
 import com.example.ZhangDT.bean.dto.TeacherDTO;
 import com.example.ZhangDT.mapper.TeacherMapper;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TeacherServiceimpl implements TeacherService {
+public class TeacherServiceImpl implements TeacherService {
 
 
     @Autowired

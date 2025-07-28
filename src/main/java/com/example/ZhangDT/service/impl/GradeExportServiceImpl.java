@@ -21,7 +21,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
 @Service
-public class GradeExportService {
+public class GradeExportServiceImpl {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -33,7 +33,7 @@ public class GradeExportService {
     private SemesterServiceImpl semesterService;
 
     @Autowired
-    private StudentServiceimpl studentService;
+    private StudentServiceImpl studentService;
 
     @Autowired
     private CourseServiceImpl courseService;

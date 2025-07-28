@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class CourseAssignServiceimpl {
+public class CourseAssignServiceImpl {
 
     @Autowired
     private ClassroomMapper classroomMapper;

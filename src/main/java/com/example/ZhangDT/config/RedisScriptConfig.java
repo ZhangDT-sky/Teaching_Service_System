@@ -47,4 +47,13 @@ public class RedisScriptConfig {
         return RedisScript.of(script, Long.class);
     }
 
+
+    @Bean
+    public RedisScript<Long> seqCourseScript(){
+        String script="local val = redis.call('incr', KEYS[1]) " +
+                      "local mod = tonumber(ARGV[1]) " +
+                      "return (val - 1) % mod";
+        return RedisScript.of(script, Long.class);
+    }
+
 }

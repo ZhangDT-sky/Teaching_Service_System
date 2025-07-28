@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Service
-public class CollegeServiceimpl implements CollegeeService {
+public class CollegeServiceImpl implements CollegeeService {
 
     @Autowired
     CollegeMapper collegeMapper;

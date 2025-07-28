@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 
-public class CaptchaServiceimpl {
+public class CaptchaServiceImpl {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -19,6 +19,7 @@ public class CaptchaServiceimpl {
      * 生成并存储验证码
      */
     public String generateCaptcha(){
+        stringRedisTemplate.opsForValue().multiSet();
         //4
         String captcha = generateRandomCode();
 

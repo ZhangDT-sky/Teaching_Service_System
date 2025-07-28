@@ -1,18 +1,16 @@
 package com.example.ZhangDT.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.ZhangDT.bean.Admin;
 import com.example.ZhangDT.mapper.AdminMapper;
 import com.example.ZhangDT.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Wrapper;
 import java.util.List;
 
 
 @Service
-public class AdminServiceimpl implements AdminService {
+public class AdminServiceImpl implements AdminService {
 
     @Autowired
     AdminMapper adminMapper;

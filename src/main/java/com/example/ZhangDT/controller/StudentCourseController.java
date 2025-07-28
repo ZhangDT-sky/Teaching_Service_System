@@ -3,7 +3,6 @@ package com.example.ZhangDT.controller;
 import com.example.ZhangDT.bean.StudentCourse;
 import com.example.ZhangDT.core.ResponseMessage;
 import com.example.ZhangDT.service.StudentCourseService;
-import com.example.ZhangDT.service.impl.StudentCourseServiceimpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
