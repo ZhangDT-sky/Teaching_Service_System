@@ -19,7 +19,6 @@ public class CaptchaServiceImpl {
      * 生成并存储验证码
      */
     public String generateCaptcha(){
-        stringRedisTemplate.opsForValue().multiSet();
         //4
         String captcha = generateRandomCode();
 
